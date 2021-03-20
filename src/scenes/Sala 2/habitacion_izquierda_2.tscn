@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/AssetsFinals/Levels/Level_Esquerra_2.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Level_Esquerra_2" type="Sprite" parent="."]
+position = Vector2( 513.694, 291.161 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )

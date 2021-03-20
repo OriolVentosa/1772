@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Lights/scare.gd" type="Script" id=1]
+[ext_resource path="res://assets/AssetsFinals/pixil-frame-8_3.png" type="Texture" id=2]
+[ext_resource path="res://assets/AssetsFinals/Sonido/musicamonstre_mp3cut.net_3.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/AssetsFinals/pixil-frame-0_77.png" type="Texture" id=4]
+
+[node name="Scare" type="Node2D"]
+z_index = 400
+script = ExtResource( 1 )
+
+[node name="Face1" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+
+[node name="Face2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 24.0

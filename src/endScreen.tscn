@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/terminal/TerminalTheme.tres" type="Theme" id=1]
+[ext_resource path="res://src/endScreen.gd" type="Script" id=2]
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 576.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 350.853
+margin_top = 69.6212
+margin_right = 458.853
+margin_bottom = 99.6212
+rect_scale = Vector2( 3.04, 3.04 )
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control"]
+margin_left = 62.5074
+margin_top = 203.992
+margin_right = 374.507
+margin_bottom = 233.992
+rect_scale = Vector2( 1.73945, 2 )
+custom_colors/font_color = Color( 0, 0.298039, 1, 1 )
+text = "Children lost in the dark:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control"]
+margin_left = 62.5074
+margin_top = 277.023
+margin_right = 374.507
+margin_bottom = 307.023
+rect_scale = Vector2( 1.73945, 2 )
+custom_colors/font_color = Color( 0, 0.298039, 1, 1 )
+text = "Words written correctly:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChildrenCount" type="Label" parent="Control"]
+margin_left = 616.526
+margin_top = 202.884
+margin_right = 928.526
+margin_bottom = 232.884
+rect_scale = Vector2( 1.73945, 2 )
+custom_colors/font_color = Color( 0, 0.298039, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DealedWithChildren" type="Label" parent="Control"]
+margin_left = 553.519
+margin_top = 277.347
+margin_right = 865.519
+margin_bottom = 307.347
+rect_scale = Vector2( 1.73945, 2 )
+custom_colors/font_color = Color( 0, 0.298039, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

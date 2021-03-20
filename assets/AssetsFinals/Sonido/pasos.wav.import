@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pasos.wav-c7a2386883c9c39aac7e66f6e3c4237c.sample"
+
+[deps]
+
+source_file="res://assets/AssetsFinals/Sonido/pasos.wav"
+dest_files=[ "res://.import/pasos.wav-c7a2386883c9c39aac7e66f6e3c4237c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

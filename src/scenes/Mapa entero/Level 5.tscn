@@ -1,0 +1,449 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://src/scenes/Mapa entero/Level 5.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/Sala 5/habitacion_izquierda_5.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/Sala 5/HabitacioCentral5.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/scenes/Sala 5/HabitacionDerecha_5.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Collisions/ColRight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Collisions/ColMidUpper.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Collisions/ColLeft.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/scenes/Mapa entero/DealerRoom.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/AssetsFinals/Levels/Circo1.png" type="Texture" id=10]
+[ext_resource path="res://assets/AssetsFinals/Levels/ModuloEsquerra.png" type="Texture" id=11]
+[ext_resource path="res://assets/AssetsFinals/Levels/ModulDret.png" type="Texture" id=12]
+[ext_resource path="res://assets/AssetsFinals/Levels/Circo2.png" type="Texture" id=13]
+[ext_resource path="res://src/terminal/TerminalTheme.tres" type="Theme" id=14]
+[ext_resource path="res://assets/AssetsFinals/Props/cajas apiladas.png" type="Texture" id=15]
+[ext_resource path="res://src/Spawners/ChildSpawner.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/dialeg/Dialog.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/portals/portal.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/AssetsFinals/Props/encadenado.png" type="Texture" id=19]
+[ext_resource path="res://assets/AssetsFinals/Sonido/BeepBox-Song_8_mp3cut.net.wav" type="AudioStream" id=20]
+[ext_resource path="res://src/PickUps/BarreraRoja.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/pcIluminat.tscn" type="PackedScene" id=22]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="Level 5" type="Node2D"]
+position = Vector2( 0, -4608 )
+script = ExtResource( 1 )
+numberOfSpawns = 1
+simpleDialogs = 1
+
+[node name="Middle" parent="." instance=ExtResource( 3 )]
+z_index = -300
+
+[node name="Password" parent="Middle/TerminalCompleta" index="2"]
+margin_left = 204.26
+margin_top = 289.72
+margin_right = 204.26
+margin_bottom = 289.72
+
+[node name="Right" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1024, 0 )
+z_index = -300
+
+[node name="Left" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1024, 0 )
+z_index = -300
+
+[node name="CIRC1" parent="." instance=ExtResource( 2 )]
+position = Vector2( -2048, 0 )
+z_index = -300
+
+[node name="Level_Esquerra_4" parent="CIRC1" index="0"]
+texture = ExtResource( 10 )
+
+[node name="CIRC2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -2048, -576 )
+z_index = -300
+
+[node name="Level_Esquerra_4" parent="CIRC2" index="0"]
+texture = ExtResource( 13 )
+
+[node name="DealerRoom" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2048, 0 )
+
+[node name="ColLeft" parent="." instance=ExtResource( 7 )]
+
+[node name="ColMid" parent="." instance=ExtResource( 6 )]
+
+[node name="ColRight" parent="." instance=ExtResource( 5 )]
+
+[node name="Base" type="Node2D" parent="."]
+position = Vector2( 800.589, 510.48 )
+
+[node name="TerminalTimer" type="Timer" parent="."]
+wait_time = 20.0
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 800.589, 538.375 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2849.14, 210.654 )
+scale = Vector2( 24.4211, 4.90935 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2796.72, 214.531 )
+rotation = -0.226903
+scale = Vector2( 23.6563, 5.0163 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2515.73, 271.396 )
+rotation = -0.00126068
+scale = Vector2( 6.77649, 5.0163 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2328.89, 239.087 )
+rotation = 0.239773
+scale = Vector2( 13.4632, 5.0163 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2170.66, 210.655 )
+rotation = 0.000207517
+scale = Vector2( 13.4632, 5.0163 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -2182.33, 311.255 )
+rotation = 0.000207517
+scale = Vector2( 13.4632, 29.3778 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -933.008, 565.97 )
+rotation = 0.000207517
+scale = Vector2( -9.08586, 14.5879 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -861.41, 154.994 )
+rotation = 0.000207517
+scale = Vector2( -19.6073, 13.1885 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -894.345, 252.368 )
+rotation = 0.000207517
+scale = Vector2( -20.3108, -5.02843 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1879.3, 246.676 )
+rotation = 0.000207517
+scale = Vector2( -17.9144, 5.60034 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1932.28, 445.72 )
+rotation = 0.000207517
+scale = Vector2( -8.51498, 4.43542 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -677.069, 254.751 )
+rotation = -0.77376
+scale = Vector2( -3.94292, 2.67635 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -2114.84, 205.547 )
+rotation = 0.000207517
+scale = Vector2( 44.2239, 13.5483 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -2344.3, -352.692 )
+rotation = 0.000207517
+scale = Vector2( 44.2239, 35.5889 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1571.15, -86.0625 )
+rotation = 0.000207517
+scale = Vector2( 81.9718, 3.67778 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1303.16, -144.559 )
+rotation = -0.331557
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1203.85, -207.136 )
+rotation = -0.755847
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1176.65, -324.128 )
+rotation = -1.75743
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1273.23, -419.354 )
+rotation = -2.54413
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1448.6, -477.811 )
+rotation = -2.91858
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1578.88, -489.502 )
+rotation = -3.38878
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1757.59, -437.727 )
+rotation = -3.38195
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1840.38, -358.027 )
+rotation = -4.01027
+scale = Vector2( 3.77816, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1882.94, -341.004 )
+rotation = -3.10813
+scale = Vector2( 3.77816, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1871.16, -394.302 )
+rotation = -3.76087
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1836.08, -162.146 )
+rotation = -2.61538
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1714.16, -118.722 )
+rotation = -2.9466
+scale = Vector2( 14.3056, 2.23749 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1224.39, 270.602 )
+rotation = 0.000207517
+scale = Vector2( 19.4016, 6.70386 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1554.62, 152.365 )
+rotation = 0.000207517
+scale = Vector2( 20.3331, 5.42561 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -1563.28, 637.819 )
+rotation = 0.000207517
+scale = Vector2( 57.7092, 7.28305 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2595.17, 643.539 )
+rotation = 0.000207517
+scale = Vector2( 57.7092, 7.28305 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 3143.35, 188.75 )
+rotation = 1.56742
+scale = Vector2( 57.7092, 7.28305 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 2053.4, 285.154 )
+rotation = 0.000207517
+scale = Vector2( -3.57342, 29.061 )
+shape = SubResource( 1 )
+
+[node name="ModulDret" type="Sprite" parent="."]
+position = Vector2( 1534.35, 285.241 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 12 )
+
+[node name="ModuloEsquerra" type="Sprite" parent="."]
+position = Vector2( -501.086, 275.796 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 11 )
+
+[node name="Spawn1" parent="." instance=ExtResource( 16 )]
+position = Vector2( -1459.41, -401.466 )
+
+[node name="cajas apiladas" type="Sprite" parent="."]
+position = Vector2( -1697.23, -353.76 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 15 )
+
+[node name="Panel" type="Panel" parent="cajas apiladas"]
+margin_left = -42.8687
+margin_top = 2.35779
+margin_right = -2.86865
+margin_bottom = 42.3578
+rect_rotation = -45.4679
+theme = ExtResource( 14 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="cajas apiladas/Panel"]
+margin_left = -4.76538
+margin_top = -2.50586
+margin_right = 55.2346
+margin_bottom = 27.4941
+rect_rotation = 44.4575
+rect_scale = Vector2( 0.143373, 0.195949 )
+text = "1998"
+
+[node name="Dialog1" parent="." instance=ExtResource( 17 )]
+visible = false
+margin_left = -1785.42
+margin_top = -157.653
+margin_right = -1785.42
+margin_bottom = -157.653
+text = [ "I'm the class clown" ]
+
+[node name="Portal1" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1997, 350.431 )
+scale = Vector2( 0.479995, 1 )
+
+[node name="finalTp" parent="Portal1" index="2"]
+position = Vector2( 350.88, 49.4736 )
+
+[node name="Portal2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1967.53, 345.168 )
+
+[node name="CollisionShape2D" parent="Portal2" index="0"]
+position = Vector2( 135.36, 69.6519 )
+scale = Vector2( 1.35999, 4.36002 )
+
+[node name="finalTp" parent="Portal2" index="2"]
+position = Vector2( -66.1309, 3.45898 )
+
+[node name="Portal3" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1537.71, 238.766 )
+
+[node name="CollisionShape2D" parent="Portal3" index="0"]
+rotation = 1.57595
+scale = Vector2( 3.93629, 4.57312 )
+
+[node name="finalTp" parent="Portal3" index="2"]
+position = Vector2( -7.1748, -456.805 )
+
+[node name="Portal4" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1552.06, -115.199 )
+scale = Vector2( 0.675961, 1 )
+
+[node name="CollisionShape2D" parent="Portal4" index="0"]
+rotation = 1.57595
+scale = Vector2( 3.93629, 4.57312 )
+
+[node name="finalTp" parent="Portal4" index="2"]
+position = Vector2( 25.6782, 487.008 )
+
+[node name="Portal5" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1138.43, 427.453 )
+scale = Vector2( 0.675961, 1 )
+
+[node name="CollisionShape2D" parent="Portal5" index="0"]
+position = Vector2( 128.534, 12.4272 )
+rotation = 3.14655
+scale = Vector2( 3.93629, 4.57312 )
+
+[node name="finalTp" parent="Portal5" index="2"]
+position = Vector2( 330.336, -84.7373 )
+
+[node name="Portal6" parent="." instance=ExtResource( 18 )]
+position = Vector2( -1083.37, 378.718 )
+scale = Vector2( 0.675961, 1 )
+
+[node name="CollisionShape2D" parent="Portal6" index="0"]
+position = Vector2( 128.534, 12.4272 )
+rotation = 3.14655
+scale = Vector2( 3.93629, 4.57312 )
+
+[node name="finalTp" parent="Portal6" index="2"]
+position = Vector2( -83.4565, 48.7764 )
+
+[node name="encadenado" type="Sprite" parent="."]
+position = Vector2( -1487.94, -452.218 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 19 )
+
+[node name="LevelMusicPlay" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelMusicPlay"]
+position = Vector2( 514.078, 551.309 )
+scale = Vector2( 14, 1 )
+shape = SubResource( 3 )
+
+[node name="interactSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="BarreraRoja" parent="." instance=ExtResource( 21 )]
+position = Vector2( 501.71, 239.749 )
+
+[node name="ordenador" parent="." instance=ExtResource( 22 )]
+position = Vector2( 452.4, 77.5503 )
+[connection signal="enter_terminal" from="Middle/TerminalCompleta" to="." method="_on_TerminalCompleta_enter_terminal"]
+[connection signal="exit_terminal" from="Middle/TerminalCompleta" to="." method="_on_TerminalCompleta_exit_terminal"]
+[connection signal="solved" from="Middle/TerminalCompleta/Terminal" to="." method="_on_Terminal_solved"]
+[connection signal="finishDeal" from="DealerRoom" to="." method="_on_DealerRoom_finishDeal"]
+[connection signal="freezePlayer" from="DealerRoom" to="." method="_on_DealerRoom_freezePlayer"]
+[connection signal="timeout" from="TerminalTimer" to="." method="_on_TerminalTimer_timeout"]
+[connection signal="finished" from="Dialog1" to="." method="_on_Dialog1_finished"]
+[connection signal="teleportPlayer" from="Portal1" to="." method="_on_Portal1_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal2" to="." method="_on_Portal2_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal3" to="." method="_on_Portal3_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal4" to="." method="_on_Portal4_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal5" to="." method="_on_Portal5_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal6" to="." method="_on_Portal6_teleportPlayer"]
+[connection signal="area_entered" from="LevelMusicPlay" to="." method="_on_LevelMusicPlay_area_entered"]
+
+[editable path="Middle"]
+
+[editable path="Middle/TerminalCompleta"]
+
+[editable path="CIRC1"]
+
+[editable path="CIRC2"]
+
+[editable path="Portal1"]
+
+[editable path="Portal2"]
+
+[editable path="Portal3"]
+
+[editable path="Portal4"]
+
+[editable path="Portal5"]
+
+[editable path="Portal6"]

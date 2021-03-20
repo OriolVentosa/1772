@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/musicamonstre_mp3cut.net_3.wav-ebcc35fc68fb6260739e2aecaa2340f0.sample"
+
+[deps]
+
+source_file="res://assets/AssetsFinals/Sonido/musicamonstre_mp3cut.net_3.wav"
+dest_files=[ "res://.import/musicamonstre_mp3cut.net_3.wav-ebcc35fc68fb6260739e2aecaa2340f0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

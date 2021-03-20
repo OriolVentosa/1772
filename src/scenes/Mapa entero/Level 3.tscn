@@ -1,0 +1,513 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://src/scenes/Mapa entero/Level 3.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/Sala 3/habitacion_izquierda_3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Collisions/ColMidUpper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/scenes/Sala 3/HabitacioCentral3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/scenes/Sala 3/HabitacionDerecha_3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Collisions/ColRight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Collisions/ColLeft.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/scenes/Carreteres/Carretera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/AssetsFinals/Levels/1772.png" type="Texture" id=9]
+[ext_resource path="res://assets/AssetsFinals/Levels/carretera2.png" type="Texture" id=10]
+[ext_resource path="res://assets/AssetsFinals/Levels/carretera3.png" type="Texture" id=11]
+[ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/portals/portal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/AssetsFinals/Props/Mesa.png" type="Texture" id=14]
+[ext_resource path="res://src/dialeg/Dialog.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Spawners/ChildSpawner.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/dialeg/MultiDialog.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/AssetsFinals/Props/cajas apiladas.png" type="Texture" id=18]
+[ext_resource path="res://assets/AssetsFinals/Props/pixil-frame-0_87.png" type="Texture" id=19]
+[ext_resource path="res://assets/AssetsFinals/Props/pixil-frame-0_84.png" type="Texture" id=20]
+[ext_resource path="res://assets/AssetsFinals/Props/cuadre 4.png" type="Texture" id=21]
+[ext_resource path="res://src/pcIluminat.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/AssetsFinals/Props/Taquilla.png" type="Texture" id=23]
+[ext_resource path="res://src/actors/Child_notPicked.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/AssetsFinals/Props/pixil-frame-0_89.png" type="Texture" id=25]
+[ext_resource path="res://assets/AssetsFinals/Props/pixil-frame-0_88.png" type="Texture" id=26]
+[ext_resource path="res://assets/AssetsFinals/Props/pixil-frame-0_85.png" type="Texture" id=27]
+[ext_resource path="res://assets/AssetsFinals/Sonido/accio erronea.wav" type="AudioStream" id=28]
+[ext_resource path="res://assets/AssetsFinals/Sonido/BeepBox-Song_8_mp3cut.net.wav" type="AudioStream" id=29]
+[ext_resource path="res://src/PickUps/BarreraRoja.tscn" type="PackedScene" id=30]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 985.522, 114.609 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="RectangleShape2D" id=6]
+
+[sub_resource type="RectangleShape2D" id=7]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 9.90234 )
+
+[node name="Level 3" type="Node2D"]
+position = Vector2( 0, -2304 )
+script = ExtResource( 1 )
+
+[node name="BarreraRoja" parent="." instance=ExtResource( 30 )]
+position = Vector2( 501.519, 235.327 )
+
+[node name="Node2D" parent="." instance=ExtResource( 4 )]
+z_index = -300
+
+[node name="Terminal" parent="Node2D/TerminalCompleta" index="1"]
+solution = ""
+
+[node name="Password" parent="Node2D/TerminalCompleta" index="2"]
+solution = "1772"
+
+[node name="Right" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1024, 0 )
+z_index = -300
+
+[node name="Left" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1024, 0 )
+z_index = -300
+
+[node name="ColLeft" parent="." instance=ExtResource( 7 )]
+
+[node name="ColMid" parent="." instance=ExtResource( 3 )]
+
+[node name="ColRight" parent="." instance=ExtResource( 6 )]
+
+[node name="Carretera1" parent="." instance=ExtResource( 8 )]
+position = Vector2( -2048, 0 )
+z_index = -300
+
+[node name="Carretera2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -3072, 0 )
+z_index = -300
+
+[node name="Carretera1" parent="Carretera2" index="0"]
+texture = ExtResource( 10 )
+
+[node name="Carretera3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -4096, 0 )
+z_index = -300
+
+[node name="Carretera1" parent="Carretera3" index="0"]
+texture = ExtResource( 11 )
+
+[node name="Carretera4" parent="." instance=ExtResource( 8 )]
+position = Vector2( -5120, 0 )
+z_index = -300
+
+[node name="Carretera1" parent="Carretera4" index="0"]
+texture = ExtResource( 9 )
+
+[node name="ColidersCarretera" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColidersCarretera"]
+position = Vector2( -3392.64, 660.916 )
+scale = Vector2( 2.4065, -0.733298 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ColidersCarretera"]
+position = Vector2( 1867.88, 344.018 )
+rotation = 0.792046
+scale = Vector2( 0.357445, -0.765378 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ColidersCarretera"]
+position = Vector2( -922.997, 508.508 )
+scale = Vector2( 0.127857, -0.733298 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ColidersCarretera"]
+position = Vector2( -943.403, 217.387 )
+scale = Vector2( 0.287857, -0.733298 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ColidersCarretera"]
+position = Vector2( -3350.49, 371.903 )
+scale = Vector2( 2.4065, -0.733298 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ColidersCarretera"]
+position = Vector2( -5284.23, 514.534 )
+scale = Vector2( 0.166498, -0.733298 )
+shape = SubResource( 1 )
+
+[node name="Enemy" parent="." instance=ExtResource( 12 )]
+position = Vector2( 731.4, 546.915 )
+
+[node name="TerminalTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Base" type="Node2D" parent="."]
+position = Vector2( 832.3, 528.558 )
+
+[node name="Portal" parent="." instance=ExtResource( 13 )]
+position = Vector2( -936.596, 354.833 )
+
+[node name="CollisionShape2D" parent="Portal" index="0"]
+position = Vector2( -21.5249, -4.7832 )
+scale = Vector2( 3.04, 2.72 )
+
+[node name="finalTp" parent="Portal" index="2"]
+position = Vector2( -247.891, 145.922 )
+
+[node name="Portal2" parent="." instance=ExtResource( 13 )]
+position = Vector2( -1087.23, 502.678 )
+
+[node name="finalTp" parent="Portal2" index="2"]
+position = Vector2( 215.554, -160.129 )
+
+[node name="Portal_correct_1" parent="." instance=ExtResource( 13 )]
+position = Vector2( -2013.97, 476.672 )
+scale = Vector2( 1, 0.280005 )
+
+[node name="CollisionShape2D" parent="Portal_correct_1" index="0"]
+scale = Vector2( 4.44, 8.00562 )
+shape = SubResource( 2 )
+
+[node name="finalTp" parent="Portal_correct_1" index="2"]
+position = Vector2( -211.118, 92.5298 )
+
+[node name="Portal_incorrect_1" parent="." instance=ExtResource( 13 )]
+position = Vector2( -2012.55, 534.158 )
+scale = Vector2( 1, 0.359995 )
+
+[node name="CollisionShape2D" parent="Portal_incorrect_1" index="0"]
+position = Vector2( 0, 48.5986 )
+scale = Vector2( 4.44, 6.94228 )
+shape = SubResource( 3 )
+
+[node name="finalTp" parent="Portal_incorrect_1" index="2"]
+position = Vector2( 826.884, -95.4922 )
+
+[node name="Portal_correct_2" parent="." instance=ExtResource( 13 )]
+position = Vector2( -2013.97, 476.672 )
+scale = Vector2( 1, 0.280005 )
+
+[node name="CollisionShape2D" parent="Portal_correct_2" index="0"]
+position = Vector2( -1013.17, 263.122 )
+scale = Vector2( 4.44, 9.14846 )
+shape = SubResource( 4 )
+
+[node name="finalTp" parent="Portal_correct_2" index="2"]
+position = Vector2( -1240.99, 181.292 )
+
+[node name="Portal_incorrect_2" parent="." instance=ExtResource( 13 )]
+position = Vector2( -2012.55, 534.158 )
+scale = Vector2( 1, 0.359995 )
+
+[node name="CollisionShape2D" parent="Portal_incorrect_2" index="0"]
+position = Vector2( -1014.04, -148.77 )
+scale = Vector2( 4.44, 7.38673 )
+shape = SubResource( 5 )
+
+[node name="finalTp" parent="Portal_incorrect_2" index="2"]
+position = Vector2( 826.813, -103.059 )
+
+[node name="Portal_correct_3" parent="." instance=ExtResource( 13 )]
+position = Vector2( -4049.21, 476.672 )
+scale = Vector2( 1, 0.280005 )
+
+[node name="CollisionShape2D" parent="Portal_correct_3" index="0"]
+scale = Vector2( 4.44, 10.4342 )
+shape = SubResource( 6 )
+
+[node name="finalTp" parent="Portal_correct_3" index="2"]
+position = Vector2( -226.416, 91.5161 )
+
+[node name="Portal_incorrect_3" parent="." instance=ExtResource( 13 )]
+position = Vector2( -4050.43, 534.158 )
+scale = Vector2( 1, 0.359995 )
+
+[node name="CollisionShape2D" parent="Portal_incorrect_3" index="0"]
+position = Vector2( 0, 50.1396 )
+scale = Vector2( 4.44, 6.72005 )
+shape = SubResource( 7 )
+
+[node name="finalTp" parent="Portal_incorrect_3" index="2"]
+position = Vector2( 2869.62, -90.1274 )
+
+[node name="BackPortal" parent="." instance=ExtResource( 13 )]
+position = Vector2( -4143.66, 504.881 )
+
+[node name="finalTp" parent="BackPortal" index="2"]
+position = Vector2( 3286.62, -154.45 )
+
+[node name="BackPortal2" parent="." instance=ExtResource( 13 )]
+position = Vector2( -3125.22, 504.881 )
+
+[node name="finalTp" parent="BackPortal2" index="2"]
+position = Vector2( 228.29, 9.31799 )
+
+[node name="BackPortal1" parent="." instance=ExtResource( 13 )]
+position = Vector2( -2115.12, 504.881 )
+
+[node name="finalTp" parent="BackPortal1" index="2"]
+position = Vector2( 227.731, -5.67236 )
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Mesa" type="Sprite" parent="Props"]
+position = Vector2( 1495.92, 231.702 )
+scale = Vector2( 4, 4 )
+z_index = -30
+texture = ExtResource( 14 )
+
+[node name="Mesa2" type="Sprite" parent="Props"]
+position = Vector2( 1651.64, 231.572 )
+scale = Vector2( 4, 4 )
+z_index = -30
+texture = ExtResource( 14 )
+
+[node name="Mesa3" type="Sprite" parent="Props"]
+position = Vector2( 1802.93, 233.05 )
+scale = Vector2( 4, 4 )
+z_index = -30
+texture = ExtResource( 14 )
+
+[node name="Mesa4" type="Sprite" parent="Props"]
+position = Vector2( 1464.53, 352.196 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 14 )
+
+[node name="pixil-frame-0_84" type="Sprite" parent="Props"]
+position = Vector2( 1439.84, 112.58 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 20 )
+
+[node name="Mesa9" type="Sprite" parent="Props"]
+position = Vector2( 1818.86, 348.005 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 14 )
+
+[node name="Mesa10" type="Sprite" parent="Props"]
+position = Vector2( 1642.41, 352.814 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 14 )
+
+[node name="Taquilla" type="Sprite" parent="Props"]
+position = Vector2( -579.727, 251.687 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 23 )
+
+[node name="Taquilla2" type="Sprite" parent="Props"]
+position = Vector2( -285.07, 255.37 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 23 )
+
+[node name="pixil-frame-0_87" type="Sprite" parent="Props"]
+position = Vector2( 807.692, 327 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 19 )
+
+[node name="pixil-frame-0_88" type="Sprite" parent="Props"]
+position = Vector2( 1613.51, 370.954 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 19 )
+
+[node name="pixil-frame-0_90" type="Sprite" parent="Props"]
+position = Vector2( -5113.98, 496.074 )
+texture = ExtResource( 26 )
+
+[node name="pixil-frame-0_85" type="Sprite" parent="Props"]
+position = Vector2( 635.784, 199.853 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 27 )
+
+[node name="pixil-frame-0_91" type="Sprite" parent="Props"]
+position = Vector2( 674.555, 203.729 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 27 )
+
+[node name="pixil-frame-0_86" type="Sprite" parent="Props"]
+position = Vector2( 648.707, 185.637 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 27 )
+
+[node name="pixil-frame-0_89" type="Sprite" parent="Props"]
+position = Vector2( 667.861, 164.884 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="Spawn1" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1542.7, 349.745 )
+
+[node name="Dialogs" type="Node2D" parent="."]
+position = Vector2( -680.545, 423.333 )
+z_index = 1000
+
+[node name="Dialog1" parent="Dialogs" instance=ExtResource( 17 )]
+visible = false
+margin_left = 1919.26
+margin_top = -3.276
+margin_right = 1919.26
+margin_bottom = -3.276
+pregunta = "Do you have a present for me?"
+ans1 = "Yes, take this flower"
+ans2 = "No, sorry"
+childResponse1 = "Ohh, ty ma boi"
+childResponse2 = "Ohh, okay I guess"
+childResponseLied = "You are a really bad lier..."
+
+[node name="Dialog2" parent="Dialogs" instance=ExtResource( 15 )]
+visible = false
+text = [ "I'm here just for game balance" ]
+
+[node name="cuadre 4" type="Sprite" parent="."]
+position = Vector2( -463.783, 197.034 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 21 )
+
+[node name="cajas apiladas" type="Sprite" parent="."]
+position = Vector2( 517.487, 161.567 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 18 )
+
+[node name="Area2D" parent="." instance=ExtResource( 24 )]
+position = Vector2( -4028.84, 174.978 )
+
+[node name="Area2D2" parent="." instance=ExtResource( 24 )]
+position = Vector2( -3728.21, 17.9802 )
+
+[node name="Area2D3" parent="." instance=ExtResource( 24 )]
+position = Vector2( -3840.11, 17.9802 )
+
+[node name="Area2D4" parent="." instance=ExtResource( 24 )]
+position = Vector2( -3245.52, 230.094 )
+
+[node name="Area2D5" parent="." instance=ExtResource( 24 )]
+position = Vector2( -2958.25, 161.616 )
+
+[node name="Area2D6" parent="." instance=ExtResource( 24 )]
+position = Vector2( -2817.96, 16.3098 )
+
+[node name="Area2D7" parent="." instance=ExtResource( 24 )]
+position = Vector2( -2227.4, 223.415 )
+
+[node name="Area2D8" parent="." instance=ExtResource( 24 )]
+position = Vector2( -1997.74, 166 )
+
+[node name="Area2D9" parent="." instance=ExtResource( 24 )]
+position = Vector2( -1909.56, 166 )
+
+[node name="Area2D10" parent="." instance=ExtResource( 24 )]
+position = Vector2( -1645.04, 18.3604 )
+
+[node name="Objectos" type="StaticBody2D" parent="."]
+position = Vector2( -1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 1247.12, 392.876 )
+scale = Vector2( 2.28, 1 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 1425.47, 395.461 )
+scale = Vector2( 2.28, 1 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 1606.4, 391.584 )
+scale = Vector2( 2.28, 1 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 1588.03, 284.692 )
+scale = Vector2( 2.28, 1 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 1434.37, 283.022 )
+scale = Vector2( 2.28, 1 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 1275.7, 281.352 )
+scale = Vector2( 2.28, 1 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 681.851, 165.183 )
+scale = Vector2( 2.28, 1 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 370.905, 157.867 )
+rotation = -0.767623
+scale = Vector2( 2.61888, -2.41902 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Objectos"]
+position = Vector2( 343.481, 183.907 )
+rotation = 0.00368625
+scale = Vector2( 2.61888, -1.0499 )
+shape = SubResource( 8 )
+
+[node name="Spawn2" parent="." instance=ExtResource( 16 )]
+position = Vector2( -424.11, 378.157 )
+
+[node name="incorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+
+[node name="interactSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+
+[node name="ordenador" parent="." instance=ExtResource( 22 )]
+position = Vector2( 459.888, 75.2222 )
+[connection signal="enter_terminal" from="Node2D/TerminalCompleta" to="." method="_on_TerminalCompleta_enter_terminal"]
+[connection signal="exit_terminal" from="Node2D/TerminalCompleta" to="." method="_on_TerminalCompleta_exit_terminal"]
+[connection signal="solved" from="Node2D/TerminalCompleta/Terminal" to="." method="_on_Terminal_solved"]
+[connection signal="timeout" from="TerminalTimer" to="." method="_on_TerminalTimer_timeout"]
+[connection signal="teleportPlayer" from="Portal" to="." method="_on_Portal_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal2" to="." method="_on_Portal2_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_correct_1" to="." method="_on_Portal_correct_1_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_incorrect_1" to="." method="_on_Portal_incorrect_1_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_incorrect_1" to="." method="_on_Portal1_incorrect2_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_correct_2" to="." method="_on_Portal_correct_2_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_incorrect_2" to="." method="_on_Portal_incorrect_2_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_incorrect_2" to="." method="_on_Portal1_incorrect2_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_correct_3" to="." method="_on_Portal_correct_3_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_incorrect_3" to="." method="_on_Portal_incorrect_3_teleportPlayer"]
+[connection signal="teleportPlayer" from="Portal_incorrect_3" to="." method="_on_Portal1_incorrect2_teleportPlayer"]
+[connection signal="teleportPlayer" from="BackPortal" to="." method="_on_BackPortal_teleportPlayer"]
+[connection signal="teleportPlayer" from="BackPortal2" to="." method="_on_BackPortal2_teleportPlayer"]
+[connection signal="teleportPlayer" from="BackPortal1" to="." method="_on_BackPortal1_teleportPlayer"]
+[connection signal="answer" from="Dialogs/Dialog1" to="." method="_on_Dialog1_answer"]
+[connection signal="finished" from="Dialogs/Dialog2" to="." method="_on_Dialog2_finished"]
+
+[editable path="Node2D"]
+
+[editable path="Node2D/TerminalCompleta"]
+
+[editable path="Carretera2"]
+
+[editable path="Carretera3"]
+
+[editable path="Carretera4"]
+
+[editable path="Portal"]
+
+[editable path="Portal2"]
+
+[editable path="Portal_correct_1"]
+
+[editable path="Portal_incorrect_1"]
+
+[editable path="Portal_correct_2"]
+
+[editable path="Portal_incorrect_2"]
+
+[editable path="Portal_correct_3"]
+
+[editable path="Portal_incorrect_3"]
+
+[editable path="BackPortal"]
+
+[editable path="BackPortal2"]
+
+[editable path="BackPortal1"]

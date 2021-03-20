@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/terminal/TerminalTheme.tres" type="Theme" id=1]
+[ext_resource path="res://src/dialeg/DialerDialog.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="DealerDialog" type="Control"]
+visible = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pregunta = "Would you like to trade three of your children for five of mine?"
+ans1 = "Of course what a great deal!"
+ans2 = "You are kinda fucked up"
+childResponse1 = "Here you have, have a great day!"
+childResponse2 = "Okay then, but no need to disrespect...."
+childResponseLied = "I see you don't have enough children in your portfolio"
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 566.0
+margin_bottom = 157.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 554.0
+margin_bottom = 143.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPregunta" type="RichTextLabel" parent="Panel/VBox"]
+margin_right = 538.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0.627451, 0.627451, 0.627451, 1 )
+text = "\"sabes quien es Karl Friederich von Gartner, porque yo no\""
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox1" type="HBoxContainer" parent="Panel/VBox"]
+margin_top = 63.0
+margin_right = 538.0
+margin_bottom = 93.0
+
+[node name="Caret1" type="Label" parent="Panel/VBox/HBox1"]
+margin_right = 24.0
+margin_bottom = 30.0
+text = "> "
+
+[node name="Label1" type="Label" parent="Panel/VBox/HBox1"]
+margin_left = 28.0
+margin_right = 538.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "hola que tal"
+
+[node name="HBox2" type="HBoxContainer" parent="Panel/VBox"]
+margin_top = 97.0
+margin_right = 538.0
+margin_bottom = 127.0
+
+[node name="Caret2" type="Label" parent="Panel/VBox/HBox2"]
+margin_right = 24.0
+margin_bottom = 30.0
+text = "> "
+
+[node name="Label2" type="Label" parent="Panel/VBox/HBox2"]
+margin_left = 28.0
+margin_right = 538.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "yeeee"
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+margin_right = 566.0
+margin_bottom = 157.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChildResponse" type="RichTextLabel" parent="Panel2"]
+margin_left = 12.0
+margin_top = 27.0
+margin_right = 550.0
+margin_bottom = 129.0
+scroll_active = false
+
+[node name="Panel3" type="Panel" parent="."]
+visible = false
+margin_right = 566.0
+margin_bottom = 157.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChildResponse" type="RichTextLabel" parent="Panel3"]
+margin_left = 23.0
+margin_top = 26.0
+margin_right = 545.0
+margin_bottom = 120.0
+text = "Sorry I dont have any more children in stock right now"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 89.9156, 68.2502 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 248.937, 60.485 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 447.488, 43.3375 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 53.0946, 16.6958 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 46.7771, 4.53009 )
+
+[node name="ColRight" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1095.82, 244.22 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 1449.42, 220.21 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 1469.27, 520.742 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2( 1212.06, 265.335 )
+rotation = -0.745681
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2( 1006.92, 468.055 )
+rotation = -0.745681
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2( 1027.05, 421.468 )
+shape = SubResource( 5 )

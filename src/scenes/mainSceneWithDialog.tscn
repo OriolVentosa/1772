@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/actors/Fila.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Levels/background.png" type="Texture" id=2]
+[ext_resource path="res://src/actors/Enemy Container.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/zona terminal/zonaTerminal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/actors/childNotPickedContainer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/dialeg/Dialog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/scenes/mainSceneWithDialog.gd" type="Script" id=7]
+[ext_resource path="res://assets/light/ambient_light.png" type="Texture" id=8]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( -2.362, 0 )
+script = ExtResource( 7 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 487.203, 282.065 )
+scale = Vector2( 13.4, 13.3335 )
+texture = ExtResource( 8 )
+mode = 1
+range_z_max = 10
+range_layer_max = 2
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 521.951, 293.905 )
+scale = Vector2( 4.04737, 4.04737 )
+texture = ExtResource( 2 )
+
+[node name="Fila" parent="." instance=ExtResource( 1 )]
+Radius = 35.0
+
+[node name="Prota" parent="Fila" index="0"]
+position = Vector2( 245.415, 236.089 )
+speed = Vector2( 400, 400 )
+
+[node name="prota_walk" parent="Fila/Prota" index="1"]
+position = Vector2( -0.319175, -14.6501 )
+frame = 0
+
+[node name="pointLight" parent="Fila/Prota" index="6"]
+position = Vector2( 4.29617, -12.9772 )
+scale = Vector2( 1.23342, 1.12268 )
+color = Color( 0.988235, 0.972549, 0.811765, 1 )
+range_z_max = 10
+
+[node name="TerminalCompleta" parent="." instance=ExtResource( 4 )]
+light_mask = 0
+position = Vector2( 0, 0 )
+z_index = 11
+
+[node name="Zona interaccio" parent="TerminalCompleta" index="0"]
+position = Vector2( 716.301, 209 )
+
+[node name="ordenador" parent="TerminalCompleta/Zona interaccio" index="0"]
+position = Vector2( 3.11511, -20.3735 )
+
+[node name="Terminal" parent="TerminalCompleta" index="1"]
+light_mask = 0
+margin_left = 225.434
+margin_top = 297.794
+margin_right = 225.434
+margin_bottom = 297.794
+
+[node name="PopUpText" parent="TerminalCompleta" index="2"]
+light_mask = 0
+
+[node name="ChildContainer" parent="." instance=ExtResource( 5 )]
+
+[node name="Area2D" parent="ChildContainer" index="0"]
+position = Vector2( 507.311, 309.231 )
+
+[node name="Control" parent="ChildContainer" index="1"]
+light_mask = 4
+
+[node name="ChildContainer2" parent="." instance=ExtResource( 5 )]
+
+[node name="Area2D" parent="ChildContainer2" index="0"]
+position = Vector2( 653.322, 309.231 )
+
+[node name="Control" parent="ChildContainer2" index="1"]
+light_mask = 4
+
+[node name="Enemy Container" parent="." instance=ExtResource( 3 )]
+position = Vector2( -16.8646, 0 )
+
+[node name="ChildInteraction" type="Control" parent="."]
+margin_left = 215.0
+margin_top = 429.001
+margin_right = 255.0
+margin_bottom = 469.001
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogControl" parent="ChildInteraction" instance=ExtResource( 6 )]
+visible = false
+
+[node name="ChildInteraction2" type="Control" parent="."]
+margin_left = 215.0
+margin_top = 429.001
+margin_right = 255.0
+margin_bottom = 469.001
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogControl2" parent="ChildInteraction2" instance=ExtResource( 6 )]
+visible = false
+[connection signal="interact" from="ChildContainer" to="." method="_on_ChildContainer_interact"]
+[connection signal="interact" from="ChildContainer2" to="." method="_on_ChildContainer2_interact"]
+[connection signal="finished" from="ChildInteraction/DialogControl" to="." method="_on_DialogControl_finished"]
+[connection signal="finished" from="ChildInteraction2/DialogControl2" to="." method="_on_DialogControl2_finished"]
+
+[editable path="Fila"]
+
+[editable path="Fila/Prota"]
+
+[editable path="TerminalCompleta"]
+
+[editable path="ChildContainer"]
+
+[editable path="ChildContainer2"]

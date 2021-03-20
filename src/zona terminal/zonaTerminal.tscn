@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/terminal/Terminal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/zona terminal/zonaTerminal.gd" type="Script" id=3]
+[ext_resource path="res://src/Interaccions/ActivarTerminal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Password/Password.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/AssetsFinals/Sonido/acciocorrect.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/AssetsFinals/Sonido/accio erronea.wav" type="AudioStream" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13.736, 10 )
+
+[node name="TerminalCompleta" type="Node2D"]
+light_mask = 0
+position = Vector2( 1.29236, -1.29234 )
+z_index = 300
+z_as_relative = false
+script = ExtResource( 3 )
+soundPaths = [ "res://assets/AssetsFinals/Sonido/accio erronea.wav", "res://assets/AssetsFinals/Sonido/acciocorrect.wav" ]
+
+[node name="Zona interaccio" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zona interaccio"]
+scale = Vector2( -2.94503, -2.94503 )
+shape = SubResource( 1 )
+
+[node name="Terminal" parent="." instance=ExtResource( 2 )]
+visible = false
+light_mask = 1024
+margin_left = -3.0
+margin_top = 0.0
+margin_right = -3.0
+margin_bottom = 0.0
+
+[node name="Password" parent="." instance=ExtResource( 5 )]
+visible = false
+light_mask = 1024
+margin_left = -2.62977
+margin_top = 0.128849
+margin_right = -2.62977
+margin_bottom = 0.128849
+
+[node name="PopUpText" parent="." instance=ExtResource( 4 )]
+visible = false
+light_mask = 1024
+margin_left = 405.799
+margin_top = 95.6342
+margin_right = 405.799
+margin_bottom = 95.6342
+
+[node name="Label" parent="PopUpText" index="0"]
+text = ""
+
+[node name="Porta" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Porta"]
+position = Vector2( 522.986, 33.941 )
+scale = Vector2( 6.68, 5.08 )
+shape = SubResource( 2 )
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="Porta/CollisionShape2D"]
+stream = ExtResource( 6 )
+attenuation = 1.36604
+
+[node name="IncorrectSound" type="AudioStreamPlayer2D" parent="Porta/CollisionShape2D"]
+stream = ExtResource( 7 )
+[connection signal="area_entered" from="Zona interaccio" to="." method="_on_Zona_interaccio_area_entered"]
+[connection signal="area_exited" from="Zona interaccio" to="." method="_on_Zona_interaccio_area_exited"]
+[connection signal="solved" from="Terminal" to="." method="_on_Terminal_solved"]
+[connection signal="correctPassword" from="Password" to="." method="_on_Password_correctPassword"]
+[connection signal="incorrectPassword" from="Password" to="." method="_on_Password_incorrectPassword"]
+
+[editable path="PopUpText"]

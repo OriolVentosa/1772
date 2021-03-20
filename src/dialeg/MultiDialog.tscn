@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/terminal/TerminalTheme.tres" type="Theme" id=1]
+[ext_resource path="res://src/dialeg/MultiDialog.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="MultiDialogControl" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pregunta = "como te llamas?"
+ans1 = "y a ti qué"
+ans2 = "me llamo Yamo"
+childResponse1 = "jo de puta te rajo"
+childResponse2 = "pos vaya mierda de nombre"
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 566.0
+margin_bottom = 157.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 554.0
+margin_bottom = 143.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPregunta" type="RichTextLabel" parent="Panel/VBox"]
+margin_right = 538.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0.627451, 0.627451, 0.627451, 1 )
+text = "\"sabes quien es Karl Friederich von Gartner, porque yo no\""
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox1" type="HBoxContainer" parent="Panel/VBox"]
+margin_top = 63.0
+margin_right = 538.0
+margin_bottom = 93.0
+
+[node name="Caret1" type="Label" parent="Panel/VBox/HBox1"]
+margin_right = 24.0
+margin_bottom = 30.0
+text = "> "
+
+[node name="Label1" type="Label" parent="Panel/VBox/HBox1"]
+margin_left = 28.0
+margin_right = 538.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "hola que tal"
+
+[node name="HBox2" type="HBoxContainer" parent="Panel/VBox"]
+margin_top = 97.0
+margin_right = 538.0
+margin_bottom = 127.0
+
+[node name="Caret2" type="Label" parent="Panel/VBox/HBox2"]
+margin_right = 24.0
+margin_bottom = 30.0
+text = "> "
+
+[node name="Label2" type="Label" parent="Panel/VBox/HBox2"]
+margin_left = 28.0
+margin_right = 538.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "yeeee"
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+margin_right = 566.0
+margin_bottom = 157.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChildResponse" type="Label" parent="Panel2"]
+margin_left = 23.4919
+margin_top = 26.4738
+margin_right = 63.4919
+margin_bottom = 56.4738
+__meta__ = {
+"_edit_use_anchors_": false
+}

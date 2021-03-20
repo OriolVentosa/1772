@@ -1,0 +1,196 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scenes/Sala 1/HabitacionDerecha1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/AssetsFinals/Props/Mesa.png" type="Texture" id=3]
+[ext_resource path="res://src/Collisions/ColRight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Collisions/ColLeft.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Collisions/ColMid.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/scenes/Sala 1/HabitacioCentral1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/scenes/Sala 1/habitacionIzquierda1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/scenes/Mapa entero/Level 1.gd" type="Script" id=9]
+[ext_resource path="res://src/dialeg/Dialog.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Spawners/ChildSpawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/AssetsFinals/Props/Silla.png" type="Texture" id=12]
+[ext_resource path="res://assets/AssetsFinals/Props/Pizarra.png" type="Texture" id=13]
+[ext_resource path="res://src/terminal/TerminalTheme.tres" type="Theme" id=14]
+[ext_resource path="res://src/Lights/scare.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/AssetsFinals/Sonido/portatancant.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/AssetsFinals/Props/grietas/grieta 2.png" type="Texture" id=17]
+[ext_resource path="res://assets/AssetsFinals/Props/fuente.png" type="Texture" id=18]
+[ext_resource path="res://assets/AssetsFinals/Props/Taquilla.png" type="Texture" id=19]
+[ext_resource path="res://assets/AssetsFinals/Sonido/BeepBox-Song_8_mp3cut.net.wav" type="AudioStream" id=20]
+[ext_resource path="res://src/PickUps/BarreraRoja.tscn" type="PackedScene" id=21]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.5962, 25.4904 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="Level 1" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="Middle" parent="." instance=ExtResource( 7 )]
+z_index = -400
+
+[node name="Terminal" parent="Middle/TerminalCompleta" index="1"]
+solution = "aajj sskk ddll ffññ jjaa kkss lldd ññff ññaa llss kkdd jjff"
+
+[node name="TextEditRef" parent="Middle/TerminalCompleta/Terminal/Body" index="1"]
+text = "aajj sskk ddll ffññ jjaa kkss lldd ññff ññaa llss kkdd jjff"
+
+[node name="Password" parent="Middle/TerminalCompleta" index="2"]
+solution = "3346"
+
+[node name="Left" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1024, 0 )
+z_index = -400
+
+[node name="Right" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1024, 0 )
+z_index = -400
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 859.845, 539.837 )
+
+[node name="Base" type="Node2D" parent="."]
+position = Vector2( 865.892, 498.025 )
+
+[node name="TerminalTimer" type="Timer" parent="."]
+wait_time = 1e+08
+
+[node name="ColLeft" parent="." instance=ExtResource( 5 )]
+
+[node name="ColMid" parent="." instance=ExtResource( 6 )]
+
+[node name="ColRight" parent="." instance=ExtResource( 4 )]
+
+[node name="Dialog1" parent="." instance=ExtResource( 10 )]
+visible = false
+margin_left = 251.579
+margin_top = 418.948
+margin_right = 251.579
+margin_bottom = 418.948
+text = [ "They grounded me :c" ]
+
+[node name="Panel" parent="Dialog1" index="0"]
+margin_left = 944.604
+margin_right = 1510.6
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Silla" type="Sprite" parent="Props"]
+position = Vector2( 1586.18, 282.401 )
+scale = Vector2( 4, 4 )
+z_index = -30
+z_as_relative = false
+texture = ExtResource( 12 )
+
+[node name="Mesa" type="Sprite" parent="Props"]
+position = Vector2( 1634.95, 293.716 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="Pizarra" type="Sprite" parent="Props"]
+position = Vector2( -425.071, 185.471 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 13 )
+
+[node name="Spawn1" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1517.1, 340.249 )
+type = 2
+
+[node name="Taquilla" type="Sprite" parent="Spawn1"]
+position = Vector2( -214.1, -81.9769 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 19 )
+
+[node name="Taquilla2" type="Sprite" parent="Spawn1"]
+position = Vector2( 86.9, -81.9769 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 19 )
+
+[node name="fuente" type="Sprite" parent="Spawn1"]
+position = Vector2( -401.099, 61.0239 )
+scale = Vector2( 4, 4 )
+z_index = 10
+z_as_relative = false
+texture = ExtResource( 18 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1419.13, 340.413 )
+scale = Vector2( -0.735404, 0.846347 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1825.71, 340.413 )
+rotation = -0.746809
+scale = Vector2( 1.99191, 11.4064 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -782.327, 328.455 )
+rotation = 0.751032
+scale = Vector2( 1.99191, 11.4064 )
+shape = SubResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -441.999
+margin_top = 163.0
+margin_right = -401.999
+margin_bottom = 203.0
+theme = ExtResource( 14 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "3346"
+
+[node name="Scare" parent="." instance=ExtResource( 15 )]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 519.381, 419.757 )
+scale = Vector2( 19.983, -1.10773 )
+shape = SubResource( 3 )
+
+[node name="Puerta" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 513.066, 659.102 )
+stream = ExtResource( 16 )
+
+[node name="grieta 2" type="Sprite" parent="."]
+position = Vector2( -511.396, 287.854 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 17 )
+
+[node name="interactSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="BarreraRoja" parent="." instance=ExtResource( 21 )]
+position = Vector2( 502.942, 239.118 )
+[connection signal="enter_terminal" from="Middle/TerminalCompleta" to="." method="_on_TerminalCompleta_enter_terminal"]
+[connection signal="exit_terminal" from="Middle/TerminalCompleta" to="." method="_on_TerminalCompleta_exit_terminal"]
+[connection signal="solved" from="Middle/TerminalCompleta/Terminal" to="." method="_on_Terminal_solved"]
+[connection signal="timeout" from="TerminalTimer" to="." method="_on_TerminalTimer_timeout"]
+[connection signal="finished" from="Dialog1" to="." method="_on_Dialog1_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+
+[editable path="Middle"]
+
+[editable path="Middle/TerminalCompleta"]
+
+[editable path="Middle/TerminalCompleta/Terminal"]
+
+[editable path="Enemy"]
+
+[editable path="Dialog1"]

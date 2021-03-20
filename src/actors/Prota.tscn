@@ -1,0 +1,240 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/Character/prota_walk_final.png" type="Texture" id=1]
+[ext_resource path="res://src/actors/Prota.gd" type="Script" id=2]
+[ext_resource path="res://assets/light/RedondaLuz.png" type="Texture" id=3]
+[ext_resource path="res://assets/AssetsFinals/Sonido/pasos.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/AssetsFinals/Sonido/musicatension.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/AssetsFinals/Sonido/musicamonstre_mp3cut.net_2.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/AssetsFinals/Sonido/musicaambientgrillos.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/AssetsFinals/Sonido/musichabitacio2.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/AssetsFinals/Sonido/MusicaChunga.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/AssetsFinals/Sonido/mussica-nivell-blanc.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/AssetsFinals/Sonido/musica-circ.wav" type="AudioStream" id=11]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 17.8149
+height = 0.263252
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle_down"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("prota_walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle_left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("prota_walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("prota_walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("prota_walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "walk_down"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("prota_walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "walk_left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("prota_walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 10, 11 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "walk_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("prota_walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 8, 9 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "walk_up"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("prota_walk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 20.2831
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 20.5296
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 19.6894
+
+[node name="Prota" type="KinematicBody2D"]
+script = ExtResource( 2 )
+speed = Vector2( 150, 150 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.3948, 8.55938 )
+shape = SubResource( 1 )
+
+[node name="prota_walk" type="Sprite" parent="."]
+position = Vector2( -0.319175, -15.9587 )
+texture = ExtResource( 1 )
+hframes = 12
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle_down = SubResource( 2 )
+anims/idle_left = SubResource( 3 )
+anims/idle_right = SubResource( 4 )
+anims/idle_up = SubResource( 5 )
+anims/walk_down = SubResource( 6 )
+anims/walk_left = SubResource( 7 )
+anims/walk_right = SubResource( 8 )
+anims/walk_up = SubResource( 9 )
+
+[node name="PortalDetector" type="Area2D" parent="."]
+position = Vector2( -3.55458, -15.0734 )
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalDetector"]
+shape = SubResource( 10 )
+
+[node name="ChildDetector" type="Area2D" parent="."]
+position = Vector2( -3.55458, -15.0734 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChildDetector"]
+shape = SubResource( 11 )
+
+[node name="TerminalDetector" type="Area2D" parent="."]
+position = Vector2( -2.51824, -23.6327 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerminalDetector"]
+position = Vector2( -1.13205, 9.05644 )
+shape = SubResource( 12 )
+
+[node name="pointLight" type="Light2D" parent="."]
+position = Vector2( -4.50738, -15.2392 )
+scale = Vector2( 0.672, 0.623 )
+texture = ExtResource( 3 )
+energy = 0.0
+range_z_max = 100
+
+[node name="Level1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -12.042
+
+[node name="Passos" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 10.0
+autoplay = true
+attenuation = 0.0126915
+
+[node name="Enemy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 15.721
+
+[node name="Circ" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="Grillos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="NivellBlanc" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="MusicaChunga" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Level2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+[connection signal="area_entered" from="TerminalDetector" to="." method="_on_TerminalDetector_area_entered"]
+[connection signal="area_exited" from="TerminalDetector" to="." method="_on_TerminalDetector_area_exited"]

@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Level_dreta_1.png-302e06f7e738de5f52ab8b9f9a4fc4da.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/AssetsFinals/Levels/Level_dreta_1.png"
+dest_files=[ "res://.import/Level_dreta_1.png-302e06f7e738de5f52ab8b9f9a4fc4da.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=true
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

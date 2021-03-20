@@ -1,0 +1,152 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://src/intro/introScene.gd" type="Script" id=1]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-0.png" type="Texture" id=2]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-1.png" type="Texture" id=3]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-2.png" type="Texture" id=4]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-3.png" type="Texture" id=5]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-6.png" type="Texture" id=6]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-8.png" type="Texture" id=7]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-5.png" type="Texture" id=8]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-7.png" type="Texture" id=9]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-12.png" type="Texture" id=10]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-9.png" type="Texture" id=11]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-11.png" type="Texture" id=12]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-10.png" type="Texture" id=13]
+[ext_resource path="res://assets/AssetsFinals/Intro/pixil-frame-13.png" type="Texture" id=14]
+[ext_resource path="res://src/terminal/TerminalTheme.tres" type="Theme" id=15]
+[ext_resource path="res://assets/AssetsFinals/Sonido/musicatension.wav" type="AudioStream" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 7.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource( 1 )
+texturePaths = [ "res://assets/AssetsFinals/Intro/pixil-frame-0.png", "res://assets/AssetsFinals/Intro/pixil-frame-1.png", "res://assets/AssetsFinals/Intro/pixil-frame-2.png", "res://assets/AssetsFinals/Intro/pixil-frame-3.png", "res://assets/AssetsFinals/Intro/pixil-frame-4.png", "res://assets/AssetsFinals/Intro/pixil-frame-5.png", "res://assets/AssetsFinals/Intro/pixil-frame-6.png", "res://assets/AssetsFinals/Intro/pixil-frame-7.png", "res://assets/AssetsFinals/Intro/pixil-frame-8.png", "res://assets/AssetsFinals/Intro/pixil-frame-9.png", "res://assets/AssetsFinals/Intro/pixil-frame-10.png", "res://assets/AssetsFinals/Intro/pixil-frame-11.png", "res://assets/AssetsFinals/Intro/pixil-frame-12.png", "res://assets/AssetsFinals/Intro/pixil-frame-13.png" ]
+
+[node name="FirstFrame" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+frame = 2
+
+[node name="SecondFrame" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+
+[node name="Interaccion" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+margin_left = 458.612
+margin_top = 391.136
+margin_right = 581.612
+margin_bottom = 435.136
+theme = ExtResource( 15 )
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+margin_left = -24.1271
+margin_top = -10.7802
+margin_right = 129.873
+margin_bottom = 29.2198
+rect_scale = Vector2( 1.27722, 1.09349 )
+custom_styles/read_only = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+align = 1
+
+[node name="ThirdFrame" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 7 )
+
+[node name="FourthFrame" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 8 )
+
+[node name="FifthFrame" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 9 )
+
+[node name="SixthFrame" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 512, 288 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 10 )
+frame = 1
+
+[node name="MusicaIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+[connection signal="animation_finished" from="FirstFrame" to="." method="_on_FirstFrame_animation_finished"]
+[connection signal="text_entered" from="Panel/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="animation_finished" from="ThirdFrame" to="." method="_on_ThirdFrame_animation_finished"]
+[connection signal="animation_finished" from="FifthFrame" to="." method="_on_FifthFrame_animation_finished"]

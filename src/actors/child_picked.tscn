@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/actors/child_picked.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 28.3707
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("NiñoAmarillo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="StreamTexture" id=3]
+flags = 8
+load_path = "res://.import/NiñoAmarillo.png-dfdcedef725e55ff2e40f6ea6b4e887c.stex"
+
+[node name="ChildPicked" type="KinematicBody2D"]
+position = Vector2( 7.56302, 0.630249 )
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+texturePaths = [ "res://assets/Character/NiñoAmarillo.png", "res://assets/AssetsFinals/Characters/NinyoRosa.png", "res://assets/AssetsFinals/Characters/Ninyaturquesa.png", "res://assets/AssetsFinals/Characters/NinyoAzul.png", "res://assets/AssetsFinals/Characters/mecago.png" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.00115681, -21.9539 )
+scale = Vector2( 0.47984, 0.48 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 2 )
+
+[node name="NiñoAmarillo" type="Sprite" parent="."]
+position = Vector2( 0.695221, -23.1151 )
+texture = SubResource( 3 )
+hframes = 2

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BeepBox-Song_8_mp3cut.net.wav-f13a7a4f268f7769c1306805aadc01b2.sample"
+
+[deps]
+
+source_file="res://assets/AssetsFinals/Sonido/BeepBox-Song_8_mp3cut.net.wav"
+dest_files=[ "res://.import/BeepBox-Song_8_mp3cut.net.wav-f13a7a4f268f7769c1306805aadc01b2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
